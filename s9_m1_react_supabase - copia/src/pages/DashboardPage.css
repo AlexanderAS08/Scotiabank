@@ -1,0 +1,249 @@
+/* ══════════════════════════════════════════
+   DASHBOARD PAGE — Estilos
+   src/pages/DashboardPage.css
+══════════════════════════════════════════ */
+
+.dashboard-page {
+  background: #f7f8fa;
+  min-height: 100vh;
+}
+
+/* ── Navbar del dashboard ── */
+.dash-nav {
+  background: var(--dark);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  border-bottom: 2px solid var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dash-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dash-avatar {
+  width: 36px;
+  height: 36px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.dash-user-name  { font-weight: 700; font-size: 0.9rem; }
+.dash-user-email { font-size: 0.75rem; opacity: 0.55; }
+
+.btn-logout {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Figtree', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* ── Cuerpo ── */
+.dash-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ── Saludo ── */
+.dash-greeting { margin-bottom: 2rem; }
+
+.dash-greeting h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.dash-greeting p {
+  color: var(--gray-400);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+/* ── Tarjetas de saldo ── */
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.balance-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.2s;
+}
+
+.balance-card:hover { transform: translateY(-2px); }
+
+.balance-card.green  { border-left-color: #00b894; }
+.balance-card.blue   { border-left-color: #0984e3; }
+.balance-card.orange { border-left-color: #e17055; }
+.balance-card.red    { border-left-color: var(--red); }
+
+.card-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.4rem;
+}
+
+.card-amount {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.card-amount.green  { color: #00b894; }
+.card-amount.blue   { color: #0984e3; }
+.card-amount.orange { color: #e17055; }
+.card-amount.red    { color: var(--red); }
+
+.card-sub {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  margin-top: 0.2rem;
+}
+
+/* ── Grid principal ── */
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.5rem;
+}
+
+/* ── Panel blanco ── */
+.panel {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-title span {
+  font-size: 0.8rem;
+  color: var(--red);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── Lista de transacciones ── */
+.tx-list { display: flex; flex-direction: column; }
+
+.tx-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tx-item:last-child { border-bottom: none; }
+
+.tx-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.tx-icon.in      { background: #e6f9f3; }
+.tx-icon.out     { background: #fff0f0; }
+.tx-icon.neutral { background: #f0f0ff; }
+
+.tx-info       { flex: 1; }
+.tx-name       { font-size: 0.9rem; font-weight: 600; }
+.tx-date       { font-size: 0.78rem; color: var(--gray-400); margin-top: 0.1rem; }
+
+.tx-amount              { font-size: 0.95rem; font-weight: 700; }
+.tx-amount.positive     { color: #00b894; }
+.tx-amount.negative     { color: var(--red); }
+
+/* ── Acciones rápidas ── */
+.quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.action-btn {
+  background: #f7f8fa;
+  border: 1.5px solid #eee;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Figtree', sans-serif;
+}
+
+.action-btn:hover {
+  background: #fff0f0;
+  border-color: var(--red);
+}
+
+.action-icon  { font-size: 1.4rem; margin-bottom: 0.3rem; }
+.action-label { font-size: 0.8rem; font-weight: 600; color: var(--gray-700); }
+
+/* ── Coming soon ── */
+.coming-soon {
+  background: #f7f8fa;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--gray-400);
+  border: 2px dashed #e0e0e0;
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .dash-grid { grid-template-columns: 1fr; }
+}
